@@ -153,24 +153,24 @@ public class MinPQ<Key> implements Iterable<Key> {
 
     private void swim(int k) {
         //STUDENT TODO
-        while (k > 1 && greater(k / 2, k)) { // Check if parent is greater than child
-            exch(k, k / 2); // Swap with parent
-            k = k / 2; // Move up the tree
+        while (k > 1 && greater(k / 2, k)) { 
+            exch(k, k / 2); 
+            k = k / 2; 
         }
     }
 
     private void sink(int k) {
         //STUDENT TODO
-        while (2 * k <= n) { // While there's at least one child
-            int j = 2 * k; // Left child
-            if (j < n && greater(j, j + 1)) { // If right child exists and is smaller, use it
+        while (2 * k <= n) { 
+            int j = 2 * k; 
+            if (j < n && greater(j, j + 1)) { 
                 j++;
             }
-            if (!greater(k, j)) { // If parent is smaller than smallest child, stop
+            if (!greater(k, j)) { 
                 break;
             }
-            exch(k, j); // Swap with smaller child
-            k = j; // Move down the tree
+            exch(k, j); 
+            k = j; 
         }
     }
 
